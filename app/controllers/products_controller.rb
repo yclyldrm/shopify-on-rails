@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   before_action :find_variant, only: :send_gift
-
+  before_action :authenticate_user!
   def new
     @product = Product.new
     @product.variants.build
   end
 
   def send_gift
-    @variant.send_gift
+    @variant.send_gift(params[:email])
   end
 
   def show
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description, variants_attributes: [:id, :stock, :name])
+    params.require(:product).permit(:name, :price, :description, :image, variants_attributes: [:id, :stock, :name] )
   end
 
   def find_variant
