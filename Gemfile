@@ -8,6 +8,9 @@ gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem "haml-rails", "~> 1.0"
+gem 'will_paginate', '~> 3.1.0'
+gem 'ransack'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

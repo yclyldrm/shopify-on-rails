@@ -1,0 +1,13 @@
+%h1 BOOKS
+= form_with(model: @book) do |f|
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+  %p
+    = f.label :isbn
+    %br/
+    = f.text_field :isbn
+  = f.submit
+%p All Books
+= render @books

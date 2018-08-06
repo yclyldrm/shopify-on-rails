@@ -1,0 +1,8 @@
+%h1= @product.name
+%h3
+  = @product.price
+  = default_currency
+- if @product.variants.any?
+  .select-variant
+    = render partial: 'variants/select_variant', locals: { product: @product }
+#gift-message

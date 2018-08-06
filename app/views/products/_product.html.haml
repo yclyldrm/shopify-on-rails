@@ -1,0 +1,7 @@
+.flex-item
+  = link_to product_path(product) do
+    %h2= product.name
+  - if product.image.attached?
+    = image_tag product.image,size: '25x25'
+  %h3= product.price
+  %h2= default_currency

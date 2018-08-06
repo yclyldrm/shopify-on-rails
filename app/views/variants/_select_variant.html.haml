@@ -1,0 +1,6 @@
+= form_tag(gift_product_path(product), method: :post, remote: true) do
+  = select_tag :variant_id, options_for_select(product.variants.collect { |variant| [variant.name, variant.id] })
+  - if user_signed_in?
+    = submit_tag('Send Gift')
+    = label_tag(:email,"Email")
+    = text_field_tag(:email)

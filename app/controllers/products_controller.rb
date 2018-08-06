@@ -15,7 +15,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true).paginate(:page => params[:page])
   end
 
   def create

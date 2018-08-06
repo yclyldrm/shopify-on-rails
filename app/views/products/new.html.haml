@@ -1,0 +1,18 @@
+%center
+  = form_with(model: @product, local: true) do |form|
+    %p
+      = form.text_field :name, placeholder: 'product name'
+    %p
+      = form.text_field :price, placeholder: 'product price'
+    %p
+      = form.text_area :description, placeholder: 'product description'
+    %p
+      = form.file_field :image
+    %h2 Add Variant
+    = form.fields_for :variants do |variants_form|
+      %p
+        = variants_form.text_field :name, placeholder: 'variant name'
+      %p
+        = variants_form.text_field :stock, placeholder: 'variant stock'
+    %p
+      = form.submit
